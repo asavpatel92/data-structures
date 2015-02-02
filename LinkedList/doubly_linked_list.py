@@ -80,6 +80,15 @@ class DoublyList:
             print "Node %s removed from the list" %(current_node)
             previous_node.next = current_node.next
             
+    def remove_last(self):
+        if not self.tail:
+          return None
+        tail = self.tail
+        new_tail = tail.prev
+        self.tail = new_tail
+        new_tail.next = None
+        return tail
+    
     def find_node(self, value):
         if self.head is None:
             print "List is already empty."
