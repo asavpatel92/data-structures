@@ -58,12 +58,14 @@ public class SinglyList {
 				/*this means we have reached to the end of the list and still our desired not has not been found yet*/
 				if (currentNode.next == null){
 					System.out.println("Link not found!");
+					return;
 				}
 				currentNode = currentNode.next;
 			}
 			System.out.println("Link found : " + currentNode.toString());
 		} else {
 			System.out.println("Linked list is already empty");
+			return;
 		}
 	}
 	
@@ -74,6 +76,7 @@ public class SinglyList {
 			while (currentNode.key != key){
 				if (currentNode.next == null){
 					System.out.println("Link not found!");
+					return;
 				}
 				previousNode = currentNode;
 				currentNode = currentNode.next;
@@ -84,6 +87,7 @@ public class SinglyList {
 			previousNode.next = currentNode.next;
 		} else {
 			System.out.println("Linked list is already empty");
+			return;
 		}
 	}
 	
