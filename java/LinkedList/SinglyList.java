@@ -6,9 +6,9 @@ public class SinglyList {
 	
 	class Node{
 		
-		public int key;
-		public String value;
-		public Node next;
+		private int key;
+		private String value;
+		private Node next;
 		
 		public Node(int key, String value){
 			this.key = key;
@@ -20,8 +20,8 @@ public class SinglyList {
 		}
 	}
 	
-	public Node head;
-	public Node tail;
+	private Node head;
+	private Node tail;
 	
 	public SinglyList(){
 		head = null;
