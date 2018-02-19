@@ -3,7 +3,7 @@ class Vertex():
     def __init__(self, id):
         self.id = id
         self.edges = []
-        self.adjacejt_vertices = []
+        self.adjacent_vertices = []
 
     def __str__(self):
         return str("Vertex-{}".format(self.id))
@@ -16,7 +16,7 @@ class Vertex():
 
     def add_adjacent_vertex(self, edge, vertex):
         self.edges.append(edge)
-        self.adjacejt_vertices.append(vertex)
+        self.adjacent_vertices.append(vertex)
 
 
 class Edge():
@@ -59,6 +59,26 @@ class Graph():
         if not self.is_directed:
             vertex2.add_adjacent_vertex(edge, vertex1)
         return
+    
+def topological_sort(graph):
+    def sort_child(vertex, visited, stack):
+        visited.add(vertex.id)
+        for child in vertex.adjacent_vertices:
+            if child.id in visited:
+                continue
+            sort_child(child, visited, stack)
+        stack.append(vertex.id)
+
+    visited = set()
+    stack = []
+    for id in graph.all_vertices:
+        vertex = graph.all_vertices[id]
+        if id in visited:
+            continue
+        sort_child(vertex, visited, stack)
+    return stack
+    
+    
 
 if __name__ == '__main__':
     g = Graph(False)
